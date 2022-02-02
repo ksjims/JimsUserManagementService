@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["API/UserManagementService.csproj", "API/"]
-RUN dotnet restore "API/UserManagementService.csproj"
+COPY ["API/UserManagementService.API.csproj", "API/"]
+RUN dotnet restore "API/UserManagementService.API.csproj"
 COPY . .
 WORKDIR "/src/API"
-RUN dotnet build "UserManagementService.csproj" -c Release -o /app/build
+RUN dotnet build "UserManagementService.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "UserManagementService.csproj" -c Release -o /app/publish
+RUN dotnet publish "UserManagementService.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "UserManagementService.dll"]
+ENTRYPOINT ["dotnet", "UserManagementService.API.dll"]
