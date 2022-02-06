@@ -1,36 +1,39 @@
 ﻿using Ardalis.ApiEndpoints;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate;
+using UserManagementService.Core.UserAggregate.Command;
 
 namespace UserManagementService.API.Endpoints.UserEndpoints;
 
 public class CreateUserEndpoint : BaseAsyncEndpoint
-    .WithRequest<User>
+    .WithRequest<UserDto>
     .WithResponse<User>
 {
-    private readonly IUserService _userService;
+    private readonly IMediator _mediator;
 
-    public CreateUserEndpoint(IUserService userService)
+    public CreateUserEndpoint(IMediator mediator)
     {
-        _userService = userService;
+        _mediator = mediator;
     }
 
     [HttpPost("users")]
-    [SwaggerOperation(Summary = "Creates a new user",
-        Description = "Creates a new user",
-        OperationId = "User.Create",
-        Tags = new[] { "UserEndpoint" })]
-    public override async Task<ActionResult<User>> HandleAsync(User user, CancellationToken cancellationToken = new CancellationToken())
+    [SwaggerOperation(Summary = "Creates a new user", Description = "Creates a new user", OperationId = "User.Create", Tags = new[] { "UserEndpoint" })]
+    public override async Task<ActionResult<User>> HandleAsync(UserDto userDto, CancellationToken cancellationToken = default)
     {
-        var created = await _userService.CreateAsync(user);
+        var command = new CreateUserCommand
+        {
+            UserDto = userDto
+        };
 
-        if (!created)
+        var response = await _mediator.Send(command);
+
+        if (response is null)
         {
             return BadRequest();
         }
 
-        return Created($"/users/{user.Id}", user);
+        return Created($"/users/{response.Id}", response);
     }
 }

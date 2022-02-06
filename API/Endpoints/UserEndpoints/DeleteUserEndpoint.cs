@@ -1,7 +1,8 @@
 ﻿using Ardalis.ApiEndpoints;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using UserManagementService.Core.Interfaces;
+using UserManagementService.Core.UserAggregate.Command;
 
 namespace UserManagementService.API.Endpoints.UserEndpoints;
 
@@ -9,23 +10,25 @@ public class DeleteUserEndpoint : BaseAsyncEndpoint
     .WithRequest<Guid>
     .WithoutResponse
 {
-    private readonly IUserService _userService;
+    private readonly IMediator _mediator;
 
-    public DeleteUserEndpoint(IUserService userService)
+    public DeleteUserEndpoint(IMediator mediator)
     {
-        _userService = userService;
+        _mediator = mediator;
     }
 
     [HttpDelete("users/{id:guid}")]
-    [SwaggerOperation(Summary = "Deletes a user",
-        Description = "Deletes a user",
-        OperationId = "User.Delete",
-        Tags = new[] { "UserEndpoint" })]
+    [SwaggerOperation(Summary = "Deletes a user", Description = "Deletes a user", OperationId = "User.Delete", Tags = new[] { "UserEndpoint" })]
     public override async Task<ActionResult> HandleAsync(Guid id, CancellationToken cancellationToken = new CancellationToken())
     {
-        var deleted = await _userService.DeleteAsync(id);
+        var command = new DeleteUserCommand
+        {
+            Id = id
+        };
 
-        if (!deleted)
+        var response = await _mediator.Send(command);
+
+        if (!response)
         {
             return NotFound();
         }

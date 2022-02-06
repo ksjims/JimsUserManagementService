@@ -1,8 +1,9 @@
 ﻿using Ardalis.ApiEndpoints;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate;
+using UserManagementService.Core.UserAggregate.Query;
 
 namespace UserManagementService.API.Endpoints.UserEndpoints;
 
@@ -10,21 +11,19 @@ public class GetUserByIdEndpoint : BaseAsyncEndpoint
     .WithRequest<Guid>
     .WithResponse<User>
 {
-    private readonly IUserService _userService;
+    private readonly IMediator _mediator;
 
-    public GetUserByIdEndpoint(IUserService userService)
+    public GetUserByIdEndpoint(IMediator mediator)
     {
-        _userService = userService;
+        _mediator = mediator;
     }
 
     [HttpGet("users/{id:guid}")]
-    [SwaggerOperation(Summary = "Gets user by id",
-        Description = "Gets user by id",
-        OperationId = "User.GetById",
-        Tags = new[] { "UserEndpoint" })]
+    [SwaggerOperation(Summary = "Gets user by id", Description = "Gets user by id", OperationId = "User.GetById", Tags = new[] { "UserEndpoint" })]
     public override async Task<ActionResult<User>> HandleAsync([FromRoute]Guid id, CancellationToken cancellationToken = new CancellationToken())
     {
-        var user = await _userService.GetByIdAsync(id);
+        var query = new GetUserByIdQuery(id);
+        var user = await _mediator.Send(query);
 
         if (user is null)
         {

@@ -1,42 +1,40 @@
 ﻿using Ardalis.ApiEndpoints;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using UserManagementService.API.Attributes;
-using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate;
+using UserManagementService.Core.UserAggregate.Command;
 
 namespace UserManagementService.API.Endpoints.UserEndpoints;
 
 public class UpdateUserEndpoint : BaseAsyncEndpoint
-    .WithRequest<UpdateCustomerRequest>
+    .WithRequest<UserDto>
     .WithResponse<User>
 {
-    private readonly IUserService _userService;
+    private readonly IMediator _mediator;
 
-    public UpdateUserEndpoint(IUserService userService)
+    public UpdateUserEndpoint(IMediator mediator)
     {
-        _userService = userService;
+        _mediator = mediator;
     }
 
     [HttpPut("users/{id:guid}")]
-    [SwaggerOperation(Summary = "Updates a user",
-        Description = "Updates a user",
-        OperationId = "User.Update",
-        Tags = new[] { "UserEndpoint" })]
-    public override async Task<ActionResult<User>> HandleAsync(
-        [FromMultiSource]UpdateCustomerRequest request, CancellationToken cancellationToken = new CancellationToken())
+    [SwaggerOperation(Summary = "Updates a user", Description = "Updates a user", OperationId = "User.Update", Tags = new[] { "UserEndpoint" })]
+    public override async Task<ActionResult<User>> HandleAsync([FromMultiSource]UserDto userDto, CancellationToken cancellationToken = new CancellationToken())
     {
-        var user = await _userService.GetByIdAsync(request.Id);
-
-        if (user is null)
+        var command = new UpdateUserCommand
         {
-            return NotFound();
+            UserDto = userDto
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (response is null)
+        {
+            return BadRequest();
         }
 
-        user.Name = request.UpdatedUser.Name;
-
-        await _userService.UpdateAsync(user);
-
-        return Ok(user);
+        return Ok(response);
     }
 }
