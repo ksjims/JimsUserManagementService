@@ -1,4 +1,6 @@
-﻿namespace UserManagementService.API.Endpoints;
+﻿using UserManagementService.API.Endpoints;
+
+namespace UserManagementService.API.Extensions;
 
 public static class EndpointDefinitionExtensions
 {

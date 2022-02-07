@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace UserManagementService.API.Test.Unit.Endpoints;
+namespace UserManagementService.API.Test.Unit.Extensions;
 
 public static class ResultExtensions
 {

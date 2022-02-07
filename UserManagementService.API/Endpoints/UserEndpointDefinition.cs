@@ -17,7 +17,7 @@ public class UserEndpointDefinition : IEndpointDefinition
 
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("/users", async (IMediator mediator) => await GetAllUsersAsync(mediator))
+        app.MapGet("users", async (IMediator mediator) => await GetAllUsersAsync(mediator))
             .Produces(200, typeof(List<UserDto>))
             .Produces(204)
             .WithName("Gets all users")
@@ -27,7 +27,7 @@ public class UserEndpointDefinition : IEndpointDefinition
         app.MapGet("users/{id}", async (IMediator mediator, Guid id) => await mediator.Send(new GetUserByIdQuery(id))).WithTags("UserEndpoint");
         app.MapPost("users", async (IMediator mediator, UserDto userDto) => await mediator.Send(new CreateUserCommand(userDto))).WithTags("UserEndpoint");
         app.MapPut("users", async (IMediator mediator, UserDto userDto) => await mediator.Send(new UpdateUserCommand(userDto))).WithTags("UserEndpoint");
-        app.MapDelete("/users/{id}", async (IMediator mediator, Guid id) => await mediator.Send(new DeleteUserCommand(id))).WithTags("UserEndpoint");
+        app.MapDelete("users/{id}", async (IMediator mediator, Guid id) => await mediator.Send(new DeleteUserCommand(id))).WithTags("UserEndpoint");
     }
 
     public async Task<IResult> GetAllUsersAsync(IMediator mediator)

@@ -20,4 +20,8 @@
     <ProjectReference Include="..\UserManagementService.Core\UserManagementService.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<InternalsVisibleTo Include="UserManagementService.API.Test.Integration" />
+  </ItemGroup>
+
 </Project>

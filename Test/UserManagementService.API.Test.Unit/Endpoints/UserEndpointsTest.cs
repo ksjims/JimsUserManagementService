@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
 using UserManagementService.API.Endpoints;
+using UserManagementService.API.Test.Unit.Extensions;
 using UserManagementService.Core.UserAggregate;
 using UserManagementService.Core.UserAggregate.Query;
 using Xunit;
@@ -44,8 +45,7 @@ public class CustomerEndpointDefinitionTests
     public async void GetAllUsers_ReturnsUser_WhenUserExists()
     {
         //Arrange
-        var id = Guid.NewGuid();
-        var user = new User(id, "Test Test");
+        var user = new User(Guid.NewGuid(), "Test Test");
         _mediator.Send(Arg.Any<GetAllUsersQuery>()).Returns(new List<User> { user });
 
         //Act
