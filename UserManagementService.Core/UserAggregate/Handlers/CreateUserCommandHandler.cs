@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate.Command;
+using UserManagementService.Core.UserAggregate.DTOs;
 
 namespace UserManagementService.Core.UserAggregate.Handlers;
 
@@ -20,7 +21,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserD
         if (created) 
         {
             var user = await _userService.GetByIdAsync(request.UserDto.Id);
-            return new UserDto(user.Id, user.Name);
+            if (user is not null)
+            {
+                return new UserDto(user.Id, user.Name);
+            }
         }
 
         return null;

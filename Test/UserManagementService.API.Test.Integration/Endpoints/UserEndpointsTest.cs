@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserManagementService.API.Endpoints;
 using UserManagementService.Core.UserAggregate;
+using UserManagementService.Core.UserAggregate.DTOs;
 using UserManagementService.Core.UserAggregate.Query;
 using Xunit;
 
@@ -26,7 +27,7 @@ public class UserEndpointsTests
         //Arrange
         _mediator.Send(Arg.Any<GetAllUsersQuery>()).Returns((List<User>)null);
 
-        using var app = new TestApplicationFactory(x =>
+        await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
         });
@@ -46,7 +47,7 @@ public class UserEndpointsTests
         //Arrange
         _mediator.Send(Arg.Any<GetAllUsersQuery>()).Returns(new List<User>());
 
-        using var app = new TestApplicationFactory(x =>
+        await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
         });
@@ -67,7 +68,7 @@ public class UserEndpointsTests
         var user = new User(Guid.NewGuid(), "Test Test");
         _mediator.Send(Arg.Any<GetAllUsersQuery>()).Returns(new List<User> { user });
 
-        using var app = new TestApplicationFactory(x =>
+        await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
         });

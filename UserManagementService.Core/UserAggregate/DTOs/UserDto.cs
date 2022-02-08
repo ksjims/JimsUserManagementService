@@ -1,18 +1,3 @@
-﻿namespace UserManagementService.Core.UserAggregate;
+﻿namespace UserManagementService.Core.UserAggregate.DTOs;
 
-public class UserDto
-{
-    public Guid Id { get; set; }
-    public string Name { get; set; } = default!;
-
-    public UserDto()
-    {
-    }
-
-    public UserDto(Guid id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
-}
-
+public record UserDto(Guid Id, string Name);

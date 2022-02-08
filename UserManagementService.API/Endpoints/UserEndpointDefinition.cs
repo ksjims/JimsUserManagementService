@@ -3,6 +3,7 @@ using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.Services;
 using UserManagementService.Core.UserAggregate;
 using UserManagementService.Core.UserAggregate.Command;
+using UserManagementService.Core.UserAggregate.DTOs;
 using UserManagementService.Core.UserAggregate.Query;
 
 namespace UserManagementService.API.Endpoints;

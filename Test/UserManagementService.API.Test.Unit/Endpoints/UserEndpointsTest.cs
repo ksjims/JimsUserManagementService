@@ -5,6 +5,7 @@ using NSubstitute;
 using UserManagementService.API.Endpoints;
 using UserManagementService.API.Test.Unit.Extensions;
 using UserManagementService.Core.UserAggregate;
+using UserManagementService.Core.UserAggregate.DTOs;
 using UserManagementService.Core.UserAggregate.Query;
 using Xunit;
 
