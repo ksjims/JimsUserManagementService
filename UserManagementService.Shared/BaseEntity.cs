@@ -1,5 +1,5 @@
 ﻿namespace UserManagementService.Shared;
-public abstract class BaseEntity
+public interface BaseEntity<TId>
 {
-    public Guid Id { get; set; }
+    public TId Id { get; set; }
 }
