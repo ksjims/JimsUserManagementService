@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace UserManagementService.Core.UserAggregate.Command;
+﻿namespace UserManagementService.Core.UserAggregate.Command;
 
 public class DeleteUserCommand : IRequest<bool>
 {

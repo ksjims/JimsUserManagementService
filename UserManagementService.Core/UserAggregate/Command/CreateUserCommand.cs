@@ -1,5 +1,4 @@
-﻿using MediatR;
-using UserManagementService.Core.UserAggregate.DTOs;
+﻿using UserManagementService.Core.UserAggregate.DTOs;
 
 namespace UserManagementService.Core.UserAggregate.Command;
 

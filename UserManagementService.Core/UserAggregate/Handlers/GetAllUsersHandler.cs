@@ -1,4 +1,3 @@
-using MediatR;
 using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate.Query;
 

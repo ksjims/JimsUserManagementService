@@ -1,5 +1,3 @@
-using MediatR;
-
 namespace UserManagementService.Core.UserAggregate.Query;
 
 public class GetUserByIdQuery : IRequest<User?>

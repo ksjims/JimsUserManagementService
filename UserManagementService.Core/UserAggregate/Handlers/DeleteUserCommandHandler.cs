@@ -1,5 +1,4 @@
-﻿using MediatR;
-using UserManagementService.Core.Interfaces;
+﻿using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.UserAggregate.Command;
 
 namespace UserManagementService.Core.UserAggregate.Handlers;
