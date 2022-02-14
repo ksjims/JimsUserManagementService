@@ -1,10 +1,7 @@
-﻿using UserManagementService.Shared;
-
-namespace UserManagementService.Core.UserAggregate;
-
-public class User : BaseEntity<Guid>
+﻿namespace UserManagementService.Core.UserAggregate;
+using UserManagementService.Shared.Data;
+public class User : BaseEntity
 {
-    public Guid Id { get; set; }
     public string Name { get; set; } = default!;
 
     public User(Guid id, string name)

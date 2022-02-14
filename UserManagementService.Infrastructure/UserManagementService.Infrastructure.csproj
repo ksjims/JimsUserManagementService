@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,4 +6,37 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Data\Scripts\20220214003135_SeedInitialUserData.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Content Include="..\UserManagementService.API\appsettings.json" Link="appsettings.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+ </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Scripts\20220214003135_SeedInitialUserData.sql" />
+  </ItemGroup>
+
+ <ItemGroup>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0-preview.5.21301.9">
+		<PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-preview.5.21301.9">
+		<PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+ </ItemGroup>
+
+ <ItemGroup>
+   <ProjectReference Include="..\UserManagementService.Core\UserManagementService.Core.csproj" />
+   <ProjectReference Include="..\UserManagementService.Shared\UserManagementService.Shared.csproj" />
+ </ItemGroup>
+
+ <ItemGroup>
+   <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+ </ItemGroup>
 </Project>
