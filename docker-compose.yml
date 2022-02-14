@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8899:80"
+    environment:
+      - SQSBaseUrl=http://localsqs:9324
+      - SQSQueue=user
+    volumes:
+      - ${USERPROFILE}\.aws:/root/.aws:ro
+  localsqs:
+    image: "vsouza/sqs-local"
+    ports:
+      - "9324:9324"
+  awscli:
+    image: "amazon/aws-cli:latest"
+    depends_on:
+      - localsqs
+    volumes:
+      - ${USERPROFILE}\.aws:/root/.aws:ro
+    command: sqs create-queue --endpoint-url=http://localsqs:9324 --queue-name=user

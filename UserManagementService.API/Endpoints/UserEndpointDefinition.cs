@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SQS.Publisher;
 using UserManagementService.Core.Interfaces;
 using UserManagementService.Core.Services;
 using UserManagementService.Core.UserAggregate;
@@ -13,6 +14,7 @@ public class UserEndpointDefinition : IEndpointDefinition
     public void DefineServices(IServiceCollection services)
     {
         services.AddSingleton<IUserService, UserService>();
+        services.AddSingleton<ISqsPublisher, SqsPublisher>();
         services.AddMediatR(typeof(User));
     }
 

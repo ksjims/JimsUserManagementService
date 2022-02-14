@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B5A7B828-3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.API.Test.Unit", "Test\UserManagementService.API.Test.Unit\UserManagementService.API.Test.Unit.csproj", "{D81AB2D6-4D47-4F1F-B1C1-F374157BC365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementService.API.Test.Integration", "Test\UserManagementService.API.Test.Integration\UserManagementService.API.Test.Integration.csproj", "{D6BE2E36-861D-433A-A689-004A4FA73187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.API.Test.Integration", "Test\UserManagementService.API.Test.Integration\UserManagementService.API.Test.Integration.csproj", "{D6BE2E36-861D-433A-A689-004A4FA73187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQS.Publisher", "SQS.Publisher\SQS.Publisher.csproj", "{3096CB4A-7FB1-4A60-99D8-26C61670E0EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3096CB4A-7FB1-4A60-99D8-26C61670E0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3096CB4A-7FB1-4A60-99D8-26C61670E0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3096CB4A-7FB1-4A60-99D8-26C61670E0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3096CB4A-7FB1-4A60-99D8-26C61670E0EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
