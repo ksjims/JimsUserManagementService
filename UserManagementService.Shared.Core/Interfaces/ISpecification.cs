@@ -1,10 +1,12 @@
 ﻿using System.Linq.Expressions;
 
-namespace UserManagementService.Shared.Specification;
+namespace UserManagementService.Shared.Core.Interfaces;
 
 public interface ISpecification<T> : IRootSpecification
 {
     Expression<Func<T, bool>> Criteria { get; }
+
+    List<Expression<Func<T, bool>>> Criterias { get; }
 
     List<Expression<Func<T, object>>> Includes { get; }
 

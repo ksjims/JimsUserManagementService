@@ -1,20 +1,28 @@
 using MediatR;
-using UserManagementService.Core.Interfaces;
+using UserManagementService.Core.UserAggregate.DTOs;
 using UserManagementService.Core.UserAggregate.Query;
+using UserManagementService.Core.UserAggregate.Specification;
+using UserManagementService.Shared.Core.Aggregate.DTOs;
+using UserManagementService.Shared.Core.Interfaces;
 
 namespace UserManagementService.Core.UserAggregate.Handlers;
 
-public class GetUserByIdHandler : IRequestHandler<GetUserByIdQuery, User?>
+public class GetUserByIdHandler : IRequestHandler<GetUserByIdQuery, ResultModel<UserDto>>
 {
-    private readonly IUserService _userService;
-
-    public GetUserByIdHandler(IUserService userService)
+    private readonly IRepository<User> _userRepository;
+    public GetUserByIdHandler(IRepository<User> userRepository)
     {
-        _userService = userService;
+        _userRepository = userRepository;
     }
 
-    public async Task<User?> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+    public async Task<ResultModel<UserDto>> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _userService.GetByIdAsync(request.UserId);
+        if (request == null) throw new ArgumentNullException(nameof(request));
+
+        var spec = new UserByIdQuerySpecification<UserDto>(request);
+
+        var user = await _userRepository.FindOneAsync(spec);
+
+        return ResultModel<UserDto>.Create(new UserDto(user.Id, user.Name));
     }
 }

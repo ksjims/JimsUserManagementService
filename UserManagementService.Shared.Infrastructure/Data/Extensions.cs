@@ -2,12 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.DependencyInjection;
+using UserManagementService.Shared.Core.Interfaces;
 
-namespace UserManagementService.Shared.Data;
+namespace UserManagementService.Shared.Infrastructure.Data;
 
 public static class Extensions
 {
-    public static IServiceCollection AddPostgresDbContext<TDbContext>(this IServiceCollection services, string connString)
+    public static IServiceCollection AddPostgresDbContext<TDbContext>(this IServiceCollection services, string connString, Action<IServiceCollection> doMoreActions = null)
             where TDbContext : DbContext, IDbFacadeResolver
     {
         services.AddDbContext<TDbContext>(options =>
@@ -23,7 +24,7 @@ public static class Extensions
 
         services.AddHostedService<DbContextMigratorHostedService>();
 
-        //doMoreActions?.Invoke(services);
+        doMoreActions?.Invoke(services);
 
         return services;
     }

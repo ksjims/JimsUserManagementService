@@ -1,4 +1,4 @@
-﻿namespace UserManagementService.Shared.Data;
+﻿namespace UserManagementService.Shared.Core.Aggregate;
 
 public abstract class BaseEntity
 {

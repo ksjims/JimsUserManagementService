@@ -8,11 +8,13 @@ using System.Net;
 using System.Text.Json;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using UserManagementService.API.Endpoints;
 using UserManagementService.Core.UserAggregate;
 using UserManagementService.Core.UserAggregate.DTOs;
 using UserManagementService.Core.UserAggregate.Query;
 using Xunit;
+using UserManagementService.Infrastructure;
 
 namespace UserManagementService.API.Test.Integration.Endpoints;
 
@@ -30,6 +32,7 @@ public class UserEndpointsTests
         await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
+            x.AddCoreServices(new ConfigurationManager());
         });
 
         var httpClient = app.CreateClient();
@@ -50,6 +53,7 @@ public class UserEndpointsTests
         await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
+            x.AddCoreServices(new ConfigurationManager());
         });
 
         var httpClient = app.CreateClient();
@@ -71,6 +75,7 @@ public class UserEndpointsTests
         await using var app = new TestApplicationFactory(x =>
         {
             x.AddSingleton(_mediator);
+            x.AddCoreServices(new ConfigurationManager());
         });
 
         var httpClient = app.CreateClient();

@@ -33,7 +33,7 @@
 
  <ItemGroup>
    <ProjectReference Include="..\UserManagementService.Core\UserManagementService.Core.csproj" />
-   <ProjectReference Include="..\UserManagementService.Shared\UserManagementService.Shared.csproj" />
+   <ProjectReference Include="..\UserManagementService.Shared.Infrastructure\UserManagementService.Shared.Infrastructure.csproj" />
  </ItemGroup>
 
  <ItemGroup>

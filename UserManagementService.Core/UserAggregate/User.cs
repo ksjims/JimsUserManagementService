@@ -1,5 +1,7 @@
-﻿namespace UserManagementService.Core.UserAggregate;
-using UserManagementService.Shared.Data;
+﻿using UserManagementService.Shared.Core.Aggregate;
+
+namespace UserManagementService.Core.UserAggregate;
+
 public class User : BaseEntity
 {
     public string Name { get; set; } = default!;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserManagementService.Core.UserAggregate;
-using UserManagementService.Shared.Data;
+using UserManagementService.Shared.Infrastructure.Data;
 
 namespace UserManagementService.Infrastructure.Data;
 

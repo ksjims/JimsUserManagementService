@@ -1,4 +1,5 @@
-﻿using UserManagementService.Shared.Data;
+﻿using UserManagementService.Shared.Core.Aggregate;
+using UserManagementService.Shared.Infrastructure.Data;
 
 namespace UserManagementService.Infrastructure.Data;
 

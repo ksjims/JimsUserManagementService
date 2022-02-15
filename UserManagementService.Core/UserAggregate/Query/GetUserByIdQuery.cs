@@ -1,13 +1,15 @@
-using MediatR;
+using UserManagementService.Core.UserAggregate.DTOs;
+using UserManagementService.Shared.Core.Aggregate.Query;
 
 namespace UserManagementService.Core.UserAggregate.Query;
 
-public class GetUserByIdQuery : IRequest<User?>
+public class GetUserByIdQuery : IItemQuery<Guid, UserDto>
 {
-    public Guid UserId { get; }
+    public List<string> Includes { get; init; }
+    public Guid Id { get; init; }
 
-    public GetUserByIdQuery(Guid userId)
+    public GetUserByIdQuery(Guid id)
     {
-        UserId = userId;
+        Id = id;
     }
 }

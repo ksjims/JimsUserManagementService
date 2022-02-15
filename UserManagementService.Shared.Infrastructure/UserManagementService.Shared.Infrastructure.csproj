@@ -19,5 +19,9 @@
 	<PackageReference Include="EFCore.NamingConventions" Version="6.0.0-preview.3" />
 	<PackageReference Include="Polly" Version="7.2.3" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\UserManagementService.Shared.Core\UserManagementService.Shared.Core.csproj" />
+  </ItemGroup>
 
 </Project>

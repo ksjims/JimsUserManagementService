@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserManagementService.Shared.Specification;
+using UserManagementService.Shared.Core.Aggregate;
+using UserManagementService.Shared.Core.Interfaces;
 
-namespace UserManagementService.Shared.Data;
+namespace UserManagementService.Shared.Infrastructure.Data;
 
 public abstract class BaseRepository<TDbContext, TEntity> : IRepository<TEntity> where TEntity : BaseEntity where TDbContext : DbContext
 {

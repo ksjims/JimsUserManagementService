@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using UserManagementService.Shared.Data;
+using UserManagementService.Shared.Infrastructure.Data;
 
 namespace UserManagementService.Infrastructure.Migrations
 {

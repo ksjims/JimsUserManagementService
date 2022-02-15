@@ -1,6 +1,6 @@
-﻿using UserManagementService.Shared.Specification;
+﻿using UserManagementService.Shared.Core.Aggregate;
 
-namespace UserManagementService.Shared.Data;
+namespace UserManagementService.Shared.Core.Interfaces;
 public interface IRepository<TEntity> where TEntity : BaseEntity
 {
     TEntity FindById(Guid id);

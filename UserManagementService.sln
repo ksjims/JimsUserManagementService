@@ -9,13 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.Core", "UserManagementService.Core\UserManagementService.Core.csproj", "{19911082-B485-4B80-B252-378B300DB0E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.Shared", "UserManagementService.Shared\UserManagementService.Shared.csproj", "{4F42DD75-38A9-4ED1-B88E-B4095A3A6A4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.Shared.Infrastructure", "UserManagementService.Shared.Infrastructure\UserManagementService.Shared.Infrastructure.csproj", "{4F42DD75-38A9-4ED1-B88E-B4095A3A6A4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B5A7B828-3DB3-491B-893D-326CB70CF5A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.API.Test.Unit", "Test\UserManagementService.API.Test.Unit\UserManagementService.API.Test.Unit.csproj", "{D81AB2D6-4D47-4F1F-B1C1-F374157BC365}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementService.API.Test.Integration", "Test\UserManagementService.API.Test.Integration\UserManagementService.API.Test.Integration.csproj", "{D6BE2E36-861D-433A-A689-004A4FA73187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementService.Shared.Core", "UserManagementService.Shared.Core\UserManagementService.Shared.Core.csproj", "{55E41326-BC7D-449B-95C1-5D1C6FF99725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6BE2E36-861D-433A-A689-004A4FA73187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E41326-BC7D-449B-95C1-5D1C6FF99725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E41326-BC7D-449B-95C1-5D1C6FF99725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E41326-BC7D-449B-95C1-5D1C6FF99725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E41326-BC7D-449B-95C1-5D1C6FF99725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
