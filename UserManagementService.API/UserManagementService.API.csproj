@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserManagementService.Core\UserManagementService.Core.csproj" />
+    <ProjectReference Include="..\UserManagementService.Infrastructure\UserManagementService.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
