@@ -21,6 +21,7 @@ namespace LambdaInDocker
         /// <returns></returns>
         public Casing FunctionHandler(string input, ILambdaContext context)
         {
+            LambdaLogger.Log($"Invoke lambdaInDock with input: {input} at {DateTime.Now}");
             return new Casing(input?.ToLower(), input?.ToUpper());
         }
     }
