@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaInDocker", "LambdaInD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StressTest", "StressTest\StressTest.csproj", "{9483AF1F-1D3A-4462-AEA8-700755474874}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaInvoker", "LambdaInvoker\LambdaInvoker.csproj", "{85067741-1ED0-4D7E-BE07-36B3620EB995}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{9483AF1F-1D3A-4462-AEA8-700755474874}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9483AF1F-1D3A-4462-AEA8-700755474874}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9483AF1F-1D3A-4462-AEA8-700755474874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85067741-1ED0-4D7E-BE07-36B3620EB995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85067741-1ED0-4D7E-BE07-36B3620EB995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85067741-1ED0-4D7E-BE07-36B3620EB995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85067741-1ED0-4D7E-BE07-36B3620EB995}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{D6BE2E36-861D-433A-A689-004A4FA73187} = {B5A7B828-3DB3-491B-893D-326CB70CF5A9}
 		{44B90E50-FD27-4AEC-8462-16376D92AD85} = {A17ED1A9-BB04-4023-ADF3-7CF71A3178BE}
 		{9483AF1F-1D3A-4462-AEA8-700755474874} = {A17ED1A9-BB04-4023-ADF3-7CF71A3178BE}
+		{85067741-1ED0-4D7E-BE07-36B3620EB995} = {A17ED1A9-BB04-4023-ADF3-7CF71A3178BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC132256-2B16-49F2-A88F-9D8141BC3F12}
